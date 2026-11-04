@@ -163,6 +163,10 @@ class _CatalogFiltersState extends State<CatalogFilters> {
               children: [
                 ChoiceChip(
                   showCheckmark: false,
+                  selectedColor: StoreColors.accent,
+                  labelStyle: TextStyle(
+                    color: _category == null ? Colors.white : StoreColors.ink,
+                  ),
                   label: const Text('Все категории'),
                   selected: _category == null,
                   onSelected: (_) => _selectCategory(null),
@@ -170,6 +174,12 @@ class _CatalogFiltersState extends State<CatalogFilters> {
                 for (final category in state.categories)
                   ChoiceChip(
                     showCheckmark: false,
+                    selectedColor: StoreColors.accent,
+                    labelStyle: TextStyle(
+                      color: _category == category
+                          ? Colors.white
+                          : StoreColors.ink,
+                    ),
                     label: Text(categoryLabel(category)),
                     selected: _category == category,
                     onSelected: (_) => _selectCategory(category),
@@ -292,7 +302,11 @@ class FilterSummary extends StatelessWidget {
               ),
             ),
           if (filter.category != null)
-            Chip(label: Text(categoryLabel(filter.category!))),
+            Chip(
+              backgroundColor: StoreColors.accentSoft,
+              side: BorderSide.none,
+              label: Text(categoryLabel(filter.category!)),
+            ),
           if (filter.minPriceCents != null || filter.maxPriceCents != null)
             Chip(
               label: Text(

@@ -20,13 +20,13 @@ ThemeData createTheme() => ThemeData(
   textTheme: const TextTheme(
     headlineLarge: TextStyle(
       fontSize: 40,
-      fontWeight: FontWeight.w800,
-      letterSpacing: -1.4,
+      fontWeight: FontWeight.w700,
+      letterSpacing: -1.2,
       color: StoreColors.ink,
     ),
     titleLarge: TextStyle(
       fontSize: 22,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w600,
       color: StoreColors.ink,
     ),
     titleMedium: TextStyle(
@@ -42,19 +42,19 @@ ThemeData createTheme() => ThemeData(
     fillColor: StoreColors.canvas,
     contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(12),
       borderSide: const BorderSide(color: StoreColors.border),
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(12),
       borderSide: const BorderSide(color: StoreColors.accent, width: 2),
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(12),
       borderSide: const BorderSide(color: Color(0xFFBA1A1A)),
     ),
     focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(12),
       borderSide: const BorderSide(color: Color(0xFFBA1A1A), width: 2),
     ),
   ),
@@ -68,16 +68,19 @@ ThemeData createTheme() => ThemeData(
   ),
   filledButtonTheme: FilledButtonThemeData(
     style: FilledButton.styleFrom(
+      backgroundColor: StoreColors.accent,
+      foregroundColor: Colors.white,
       minimumSize: const Size(48, 48),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
     ),
   ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: StoreColors.accent,
+      textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
       minimumSize: const Size(48, 48),
       side: const BorderSide(color: StoreColors.border),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
     ),
   ),
 );

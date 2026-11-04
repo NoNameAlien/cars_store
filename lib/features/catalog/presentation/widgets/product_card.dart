@@ -35,10 +35,10 @@ class ProductCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: StoreColors.border),
+          border: Border.all(color: StoreColors.border.withValues(alpha: .35)),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -66,17 +66,20 @@ class ProductCard extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.bodySmall
-                    ?.copyWith(color: StoreColors.accent),
+                    ?.copyWith(color: StoreColors.accent, fontSize: 11),
               ),
               const SizedBox(height: 6),
               Tooltip(
                 message: product.title,
-                child: Text(
-                  product.title,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.titleMedium
-                      ?.copyWith(fontSize: 14, height: 1.35),
+                child: SizedBox(
+                  height: MediaQuery.textScalerOf(context).scale(14) * 1.35 * 3,
+                  child: Text(
+                    product.title,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.titleMedium
+                        ?.copyWith(fontSize: 14, height: 1.35),
+                  ),
                 ),
               ),
               const SizedBox(height: 12),
@@ -84,8 +87,11 @@ class ProductCard extends StatelessWidget {
                 formatUsd(product.unitPriceCents),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.titleLarge
-                    ?.copyWith(fontWeight: FontWeight.w800, letterSpacing: -.5),
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 21,
+                  letterSpacing: -.4,
+                ),
               ),
             ],
           ),

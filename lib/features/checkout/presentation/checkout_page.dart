@@ -317,7 +317,7 @@ class _CheckoutSummary extends StatelessWidget {
   Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.all(20),
     decoration: BoxDecoration(
-      color: StoreColors.accentSoft,
+      color: Colors.white,
       border: Border.all(color: StoreColors.border),
       borderRadius: BorderRadius.circular(20),
     ),
@@ -352,7 +352,7 @@ class _CheckoutSummary extends StatelessWidget {
             Text(
               formatUsd(state.totalCents),
               style: Theme.of(context).textTheme.titleLarge
-                  ?.copyWith(color: StoreColors.accent),
+                  ?.copyWith(color: StoreColors.ink),
             ),
           ],
         ),

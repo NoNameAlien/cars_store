@@ -53,7 +53,7 @@ class ProductPage extends StatelessWidget {
           );
         }
         return SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(20, 28, 20, 40),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 1200),
@@ -67,14 +67,16 @@ class ProductPage extends StatelessWidget {
                   LayoutBuilder(
                     builder: (context, constraints) {
                       final image = Container(
-                        padding: const EdgeInsets.all(32),
+                        padding: EdgeInsets.all(
+                          constraints.maxWidth >= 800 ? 32 : 24,
+                        ),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(color: StoreColors.border),
                           borderRadius: BorderRadius.circular(24),
                         ),
                         child: AspectRatio(
-                          aspectRatio: 1,
+                          aspectRatio: constraints.maxWidth >= 800 ? 1.1 : 1.4,
                           child: CachedNetworkImage(
                             imageUrl: product.imageUrl,
                             fit: BoxFit.contain,
@@ -98,7 +100,7 @@ class ProductPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 image,
-                                const SizedBox(height: 28),
+                                const SizedBox(height: 20),
                                 info,
                               ],
                             );

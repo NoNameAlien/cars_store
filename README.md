@@ -8,15 +8,15 @@
 
 ### Web
 
-![Каталог с фильтрами](docs/screenshots/web-catalog.png)
-![Карточка товара](docs/screenshots/web-product.png)
+![Каталог с фильтрами](docs/screenshots/web-catalog.png?v=3)
+![Карточка товара](docs/screenshots/web-product.png?v=3)
 
 ### Android
 
 <p>
-  <img src="docs/screenshots/android-catalog.png" width="30%" alt="Каталог Android">
-  <img src="docs/screenshots/android-product.png" width="30%" alt="Товар Android">
-  <img src="docs/screenshots/android-cart.png" width="30%" alt="Корзина Android">
+  <img src="docs/screenshots/android-catalog.png?v=3" width="30%" alt="Каталог Android">
+  <img src="docs/screenshots/android-product.png?v=3" width="30%" alt="Товар Android">
+  <img src="docs/screenshots/android-cart.png?v=3" width="30%" alt="Корзина Android">
 </p>
 
 ## Возможности

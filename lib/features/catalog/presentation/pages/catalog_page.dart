@@ -31,7 +31,7 @@ class CatalogPage extends StatelessWidget {
                     SizedBox(
                       width: 260,
                       child: SingleChildScrollView(
-                        padding: const EdgeInsets.only(top: 36, bottom: 24),
+                        padding: const EdgeInsets.only(top: 28, bottom: 24),
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -77,7 +77,7 @@ class _CatalogContent extends StatelessWidget {
               : 1;
           final scale = MediaQuery.textScalerOf(context).scale(14) / 14;
           final extent =
-              (constraints.maxWidth >= 700 ? 350.0 : 310.0) +
+              (constraints.maxWidth >= 700 ? 340.0 : 292.0) +
               (scale - 1).clamp(0, 4) * 160;
           return NestedScrollView(
             headerSliverBuilder: (context, _) => [

@@ -149,11 +149,18 @@ class CartItemTile extends StatelessWidget {
               const SizedBox(width: 14),
               Expanded(
                 child: TextButton(
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    minimumSize: const Size(48, 48),
-                    alignment: Alignment.centerLeft,
-                  ),
+                  style:
+                      TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        minimumSize: const Size(48, 48),
+                        alignment: Alignment.centerLeft,
+                      ).copyWith(
+                        overlayColor: WidgetStateProperty.resolveWith<Color?>(
+                          (states) => states.contains(WidgetState.hovered)
+                              ? Colors.transparent
+                              : null,
+                        ),
+                      ),
                   onPressed: () =>
                       context.push(StoreRoutes.product(item.productId)),
                   child: Column(
@@ -247,7 +254,7 @@ class CartSummary extends StatelessWidget {
     width: double.infinity,
     padding: const EdgeInsets.all(20),
     decoration: BoxDecoration(
-      color: StoreColors.accentSoft,
+      color: Colors.white,
       border: Border.all(color: StoreColors.border),
       borderRadius: BorderRadius.circular(20),
     ),
@@ -264,8 +271,11 @@ class CartSummary extends StatelessWidget {
             Text(
               formatUsd(state.totalCents),
               key: const Key('cart-total'),
-              style: Theme.of(context).textTheme.titleLarge
-                  ?.copyWith(color: StoreColors.accent),
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: StoreColors.ink,
+                fontSize: 28,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ],
         ),
@@ -283,22 +293,16 @@ class CartSummary extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          'Локальное оформление без оплаты.',
+          'Локальный заказ · без оплаты и доставки.',
           style: Theme.of(context).textTheme.bodySmall,
         ),
-        const SizedBox(height: 12),
-        Text(
-          state.isSaving
-              ? 'Сохраняем изменения…'
-              : state.issue == null
-              ? 'Корзина сохранена на устройстве'
-              : 'Есть проблема с сохранением',
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: state.issue == null
-                ? StoreColors.accent
-                : const Color(0xFF795719),
+        if (state.isSaving) ...[
+          const SizedBox(height: 6),
+          Text(
+            'Сохраняем изменения…',
+            style: Theme.of(context).textTheme.bodySmall,
           ),
-        ),
+        ],
       ],
     ),
   );
